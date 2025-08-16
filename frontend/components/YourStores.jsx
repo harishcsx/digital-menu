@@ -10,7 +10,7 @@ export function YourStores() {
 
   useEffect(() => {
       async function isAuthenticated() {
-        const res = await fetch("http://localhost:3000/api/isAuthed/", {
+        const res = await fetch("https://digital-menu-1-4fpa.onrender.com/api/isAuthed/", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           credentials: "include"
@@ -29,7 +29,7 @@ export function YourStores() {
     async function fetchStores() {
       const token = localStorage.getItem("token");
       try {
-        const res = await fetch("http://localhost:3000/api/service/show/store", {
+        const res = await fetch("https://digital-menu-1-4fpa.onrender.com/api/service/show/store", {
           credentials: 'include'
         });
         const data = await res.json();
@@ -106,3 +106,4 @@ export function YourStores() {
     </>
   );
 }
+
