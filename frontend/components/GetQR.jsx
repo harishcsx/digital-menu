@@ -3,7 +3,7 @@ import { QRCodeCanvas } from "qrcode.react";
 
 export const Getqr = () => {
   const { storeName } = useParams();
-  const url = `http://localhost:5173/store/${storeName}`;
+  const url = `https://scanmenu-hx.vercel.app/store/${storeName}`;
 
   function handleDownload() {
     const canvas = document.getElementById("qr-gen");
@@ -99,4 +99,5 @@ export const Getqr = () => {
       </div>
     </div>
   );
+
 };
