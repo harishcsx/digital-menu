@@ -8,7 +8,7 @@ export function SignUp() {
   const navigate = useNavigate();
 
   async function handleSignup() {
-  const res = await fetch('http://localhost:3000/api/signup', {
+  const res = await fetch('https://digital-menu-1-4fpa.onrender.com/api/signup', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     credentials: 'include',
@@ -53,3 +53,4 @@ export function SignUp() {
     </div>
   );
 }
+
