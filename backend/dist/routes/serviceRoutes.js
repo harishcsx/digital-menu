@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const authMiddleware_1 = require("../middleware/authMiddleware");
+const serviceController_1 = require("../controllers/serviceController");
+const serviceRouter = (0, express_1.Router)();
+serviceRouter.post('/create/store', authMiddleware_1.authenticate, serviceController_1.insertStore);
+serviceRouter.get('/show/store', authMiddleware_1.authenticate, serviceController_1.retriveStore);
+serviceRouter.get('/store/:storeId', serviceController_1.publicStore);
+exports.default = serviceRouter;

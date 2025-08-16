@@ -1,0 +1,71 @@
+.auth-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #0f0f1e;
+  color: white;
+  padding: 16px;
+}
+
+.auth-box {
+  background-color: #1e1e2e;
+  width: 100%;
+  max-width: 350px;
+  padding: 30px 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+  text-align: center;
+}
+
+.auth-box h1 {
+  margin-bottom: 20px;
+}
+
+.auth-box form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-box input {
+  width: 100%;
+  box-sizing: border-box; /* critical to prevent overflow */
+  padding: 12px;
+  background-color: #2e2e3e;
+  border: none;
+  border-radius: 5px;
+  margin: 10px 0;
+  font-size: 14px;
+  color: white;
+}
+
+.auth-box input::placeholder {
+  color: #aaa;
+}
+
+.auth-box button {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.auth-box button:hover {
+  background-color: #ddd;
+}
+
+.auth-box p {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.auth-box a {
+  color: #f0f0f0;
+  text-decoration: underline;
+}

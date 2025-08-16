@@ -1,0 +1,71 @@
+ // This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  // output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = "postgresql://neondb_owner:npg_HypPg5Or3XKu@ep-ancient-rice-adl38h19-pooler.c-2.us-east-1.aws.neon.tech/digiMenu?sslmode=require&channel_binding=require"
+}
+
+
+model User {
+  userId           Int       @id @default(autoincrement())
+  username         String    @unique
+  email            String?    @unique
+  password         String
+  createdAt        DateTime  @default(now())
+  isActive         Boolean   @default(true)
+  subscriptionEnd  DateTime?
+
+  stores           Store[]
+}
+
+model Store {
+  storeId     Int       @id @default(autoincrement())
+  userId      Int
+  storeName   String
+  createdAt   DateTime  @default(now())
+
+  user         User       @relation(fields: [userId], references: [userId], onDelete: Cascade)
+  products     Product[]
+  visitors     StoreVisitor[]
+}
+
+model Product {
+  productId   Int       @id @default(autoincrement())
+  title       String
+  price       Decimal   @db.Decimal(10, 2)
+  storeId     Int
+  createdAt   DateTime  @default(now())
+
+  store       Store       @relation(fields: [storeId], references: [storeId], onDelete: Cascade)
+  images      ProductImg[]
+}
+
+model ProductImg {
+  imgId       Int     @id @default(autoincrement())
+  productId   Int
+  imageUrl    String
+
+  product     Product @relation(fields: [productId], references: [productId], onDelete: Cascade)
+}
+
+model StoreVisitor {
+  id        Int      @id @default(autoincrement())
+  count     Int
+  storeId   Int
+
+  store     Store @relation(fields: [storeId], references: [storeId], onDelete: Cascade)
+}
+
+model OverallStats {
+  id                       Int @id @default(autoincrement())
+  homepageVisitorsCount    Int @default(0)
+}
