@@ -9,7 +9,7 @@ export function MenuPage() {
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const res = await fetch(`http://localhost:3000/api/service/store/${storeId}`);
+        const res = await fetch(`https://digital-menu-1-4fpa.onrender.com/api/service/store/${storeId}`);
         const data = await res.json();
         setProducts(data.products || []);
       } catch (err) {
@@ -144,4 +144,5 @@ export function MenuPage() {
       </footer>
     </div>
   );
+
 }
