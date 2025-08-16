@@ -156,7 +156,7 @@ export function CreateStore() {
   useEffect(() => {
     async function isAuthenticated() {
       try {
-        const res = await fetch("http://localhost:3000/api/isAuthed/", {
+        const res = await fetch("https://digital-menu-1-4fpa.onrender.com/api/isAuthed/", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           credentials: "include",
@@ -210,7 +210,7 @@ export function CreateStore() {
     const body = { storeName, products: productsForBackend };
 
     try {
-      const response = await fetch("http://localhost:3000/api/service/create/store", {
+      const response = await fetch("https://digital-menu-1-4fpa.onrender.com/api/service/create/store", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -412,3 +412,4 @@ const removeBtn = {
   fontSize: '1.5rem',
   lineHeight: '1',
 };
+
