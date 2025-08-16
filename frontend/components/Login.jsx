@@ -8,7 +8,7 @@ export function Login() {
   const navigate = useNavigate();
 
   async function handleLogin() {
-    const res = await fetch('http://localhost:3000/api/login', {
+    const res = await fetch('https://digital-menu-1-4fpa.onrender.com/api/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: "include",
@@ -54,3 +54,4 @@ export function Login() {
     </div>
   );
 }
+
