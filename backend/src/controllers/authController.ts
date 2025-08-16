@@ -49,12 +49,12 @@ export async function login(req: Request, res: Response) {
   const token = jwt.sign({ userId: user.userId, emailId: user.email }, JWT_SECRET, { expiresIn: '7d' });
 
   // Set JWT in HTTP-only cookie
-  res.cookie('token', token, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === 'production', // send only over HTTPS in production
-    sameSite: 'strict',
-    maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
-  }); 
+ res.cookie('token', token, {
+  httpOnly: true,
+  secure: true,           // always true for cross-site cookies
+  sameSite: 'none',       // allow cross-site cookie
+  maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
+});
 
 
   console.log("token given")
@@ -77,4 +77,5 @@ export async function isAuthenticate(req: Request, res: Response) {
   return res.json({
     msg: 'authenticated'
   })
+
 }
