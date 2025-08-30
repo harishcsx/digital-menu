@@ -135,7 +135,7 @@ export function MenuPage() {
         boxShadow: '0 -2px 12px rgba(0,0,0,0.06)',
         zIndex: 2
       }}>
-        Powered by <Link to="/" style={{
+        Powered by <Link to="https://wa.me/917735659582" style={{
           color: '#facf39',
           fontWeight: 800,
           textDecoration: 'none',
@@ -146,3 +146,4 @@ export function MenuPage() {
   );
 
 }
+
