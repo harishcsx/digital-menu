@@ -1,45 +1,7 @@
 import { Request, Response } from 'express';
 import { prisma } from '../config/db';
 
-// export const insertStore = async (req: Request, res: Response) => {
-//     try {
-//         if (!req.userId) return res.status(401).json({ error: 'Not authorized' });
 
-//         const { userId } = req;
-//         const { storeName, products } = req.body;
-
-//         if (!Array.isArray(products) || products.some(p => !p.title || !p.price)) {
-//             return res.status(400).json({ error: 'Invalid products data' });
-//         }
-        
-//         const store = await prisma.store.create({
-//             data: {
-//                 userId: userId,
-//                 storeName,
-//                 products: {
-//                     create: products // assumes products is an array of product objects
-//                 }
-//             },
-//             include: { products: true }
-//         });
-//         res.json({ 
-//             messsage: "store sucessfully created", 
-//             store
-//         })
-//     }catch(error: any) {
-//         console.log("error creating store : ", error);
-
-//         if (error.code === 'P2002') {
-//             return res.status(409).json({ error: 'Store name already exists' });
-//         }
-
-//         res.status(500).json({ error: 'Internal server error' });
-//     }
-// }
-
-// ...existing code...
-// ...existing code...
-// ...existing code...
 export const insertStore = async (req: Request, res: Response) => {
     try {
         if (!req.userId) return res.status(401).json({ error: 'Not authorized' });

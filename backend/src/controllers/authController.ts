@@ -3,7 +3,7 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { prisma } from '../config/db';
 
-const JWT_SECRET = process.env.JWT_SECRET || 'the*wefewjrekwjrwelqr$%$lsjsj';
+const JWT_SECRET = process.env.JWT_SECRET;
 
 export async function signup(req: Request, res: Response) {
   try {
@@ -20,6 +20,7 @@ export async function signup(req: Request, res: Response) {
 
     const user = await prisma.user.create({
       // data: { username, password: hashed, email }
+      // git change 
       data: { username, password: hashed,  email: 'harish@gmail.com'}
     });
 
