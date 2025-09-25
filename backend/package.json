@@ -2,15 +2,15 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "index.js",
- "scripts": {
-  "dev": "ts-node src/server.ts",
-  "build": "tsc",
-  "start": "node dist/server.js"
-},
+  "scripts": {
+    "dev": "ts-node src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "description": "",
   "dependencies": {
     "@prisma/client": "^6.11.1",
@@ -28,6 +28,6 @@
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.9",
-    "prisma": "^6.11.1"
+    "prisma": "^6.16.2"
   }
 }

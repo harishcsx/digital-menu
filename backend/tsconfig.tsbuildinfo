@@ -1,1 +1,0 @@
-{"root":["./src/app.ts","./src/server.ts","./src/config/db.ts","./src/controllers/authcontroller.ts","./src/controllers/servicecontroller.ts","./src/middleware/authmiddleware.ts","./src/routes/authroutes.ts","./src/routes/serviceroutes.ts","./src/types/express.d.ts"],"version":"5.8.3"}
