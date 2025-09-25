@@ -21,7 +21,7 @@ export async function signup(req, res) {
     const user = await prisma.user.create({
       // data: { username, password: hashed, email }
       // git change 
-      data: { username, password: hashed,  email: 'harish@gmail.com'}
+      data: { username, password: hashed}
     });
 
     console.log("User saved!", user);
@@ -47,7 +47,7 @@ export async function login(req, res) {
 
   if (!valid) return res.status(401).json({ error: 'Invalid credentials' });
 
-  const token = jwt.sign({ userId: user.userId, emailId: user.email }, JWT_SECRET, { expiresIn: '7d' });
+  const token = jwt.sign({ userId: user.userId }, JWT_SECRET, { expiresIn: '7d' });
 
   // Set JWT in HTTP-only cookie
  res.cookie('token', token, {
