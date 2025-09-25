@@ -7,7 +7,7 @@ import serviceRouter from './routes/serviceRoutes.js';
 const app = express();
 
 app.use(cors({
-  origin: 'https://scanmenu-hx.vercel.app', // frontend URL
+  origin: 'https://scan-digimenu.vercel.app', // frontend URL
   credentials: true,              // allow cookies
 }));
 app.use(express.json());
