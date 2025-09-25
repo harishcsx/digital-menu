@@ -5,11 +5,12 @@ export function MenuPage() {
   const { storeId } = useParams();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const backendUrl = import.meta.env.BACKEND_URL;
 
   useEffect(() => {
     async function fetchProducts() {
       try {
-        const res = await fetch(`https://digital-menu-1-4fpa.onrender.com/api/service/store/${storeId}`);
+        const res = await fetch(`${backendUrl}/api/service/store/${storeId}`);
         const data = await res.json();
         setProducts(data.products || []);
       } catch (err) {

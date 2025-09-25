@@ -6,9 +6,9 @@ export function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-
+  const backendUrl = import.meta.env.BACKEND_URL;
   async function handleLogin() {
-    const res = await fetch('https://digital-menu-1-4fpa.onrender.com/api/login', {
+    const res = await fetch(`${backendUrl}/api/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: "include",

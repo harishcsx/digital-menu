@@ -2,8 +2,9 @@ import { useParams } from "react-router-dom";
 import { QRCodeCanvas } from "qrcode.react";
 
 export const Getqr = () => {
+  
   const { storeName } = useParams();
-  const url = `https://scanmenu-hx.vercel.app/store/${storeName}`;
+  const url = `https://scan-digimenu.vercel.app/store/${storeName}`;
 
   function handleDownload() {
     const canvas = document.getElementById("qr-gen");

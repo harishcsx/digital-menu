@@ -1,142 +1,3 @@
-// import { useEffect, useState } from 'react';
-// import { Navbar } from './Navbar';
-// import { ProductDesc } from './ProductDesc';
-// import "../src/index.css";
-// import { useNavigate } from 'react-router-dom';
-
-// export function CreateStore() {
-//   const [count, setCount] = useState(0);
-//   const [visible, setVisible] = useState(false);
-//   const [products, setProducts] = useState([]);
-//   const [storeName, setStorename] = useState("");
-
-//   const navigate = useNavigate();
-
-//   function handleProductDone(productData) {
-//     setProducts(prev => [...prev, productData]);
-//     setVisible(false);
-//   }
-// // here checking auth 
-//   useEffect(() => {
-//       async function isAuthenticated() {
-//         const res = await fetch("http://localhost:3000/api/isAuthed/", {
-//           method: "POST",
-//           headers: { "Content-Type": "application/json" },
-//           credentials: "include"
-//         });
-
-        
-//         if (!res.ok) navigate("/login");
-//         else return;
-//       }
-
-//       isAuthenticated();
-//     }, []);
-  
-
-//   async function handleSubmit() {
-//     // const userId = localStorage.getItem('userId');
-//     const productsForBackend = products.map(p => ({
-//       ...p,
-//       price: p.price.toString()
-//     }));
-//     console.log(products);
-//     const body = { storeName, products: productsForBackend };
-
-  
-//     try {
-//       const response = await fetch("http://localhost:3000/api/service/create/store", {
-//         method: "POST",
-//         headers: { "Content-Type": "application/json" },
-//         credentials: 'include',
-//         body: JSON.stringify(body)
-//       });
-
-//       if (!response.ok) {
-//         const errorData = await response.json();
-//         console.log(errorData.error)
-//         alert(errorData.error || "Failed to create store");
-//         return;
-//       }
-
-//       alert("Store created successfully!");
-//       setProducts([]);
-//       setStorename("");
-//     } catch {
-//       alert("Something went wrong.");
-//     }
-//   }
-
-//   return (
-//     <>
-//       <Navbar />
-//       <div style={{
-//         backgroundColor: '#0e0e1a',
-//         minHeight: '100vh',
-//         color: '#f0f0f0',
-//         padding: '30px 20px'
-//       }}>
-//         <h1 style={{
-//           textAlign: 'center',
-//           fontSize: '2rem',
-//           marginBottom: '20px'
-//         }}>
-//           Create your own store!
-//         </h1>
-
-//         <div style={{ maxWidth: '500px', margin: '0 auto' }}>
-//           <input
-//             type="text"
-//             placeholder="Store name?"
-//             value={storeName}
-//             onChange={(e) => setStorename(e.target.value)}
-//             style={inputStyle}
-//           />
-
-//           <button onClick={() => { setVisible(true); setCount(c => c + 1); }} style={buttonStyle}>
-//             + Add Product
-//           </button>
-
-//           {visible && (
-//             <ProductDesc count={count} onDone={handleProductDone} />
-//           )}
-
-//           {products.length > 0 && (
-//             <button onClick={handleSubmit} style={{ ...buttonStyle, marginTop: '20px', backgroundColor: '#4caf50' }}>
-//               Create Store
-//             </button>
-//           )}
-//         </div>
-//       </div>
-//     </>
-//   );
-// }
-
-// const inputStyle = {
-//   display: 'block',
-//   width: '100%',
-//   padding: '12px',
-//   marginBottom: '15px',
-//   borderRadius: '6px',
-//   border: 'none',
-//   backgroundColor: '#1a1a2e',
-//   color: '#f0f0f0'
-// };
-
-// const buttonStyle = {
-//   width: '100%',
-//   padding: '12px',
-//   backgroundColor: '#8be78b',
-//   color: '#1a1a2e',
-//   fontWeight: 'bold',
-//   fontSize: '1rem',
-//   border: 'none',
-//   borderRadius: '6px',
-//   cursor: 'pointer'
-// };
-
-
-
 import { useEffect, useState, useCallback } from 'react';
 import { Navbar } from './Navbar';
 import { ProductDesc } from './ProductDesc';
@@ -151,12 +12,13 @@ export function CreateStore() {
   const [authChecked, setAuthChecked] = useState(false);
 
   const navigate = useNavigate();
+  const backendUrl = import.meta.env.BACKEND_URL;
 
   // ✅ Auth check
   useEffect(() => {
     async function isAuthenticated() {
       try {
-        const res = await fetch("https://digital-menu-1-4fpa.onrender.com/api/isAuthed/", {
+        const res = await fetch(`${backendUrl}/api/isAuthed/`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           credentials: "include",

@@ -6,9 +6,9 @@ export function SignUp() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-
+  const backendUrl = import.meta.env.BACKEND_URL;
   async function handleSignup() {
-  const res = await fetch('https://digital-menu-1-4fpa.onrender.com/api/signup', {
+  const res = await fetch(`${backendUrl}/api/signup`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     credentials: 'include',
