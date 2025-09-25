@@ -12,8 +12,8 @@ export function CreateStore() {
   const [authChecked, setAuthChecked] = useState(false);
 
   const navigate = useNavigate();
-  const backendUrl = import.meta.env.BACKEND_URL;
-  
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  console.log("create : ", backendUrl);
 
   // ✅ Auth check
   useEffect(() => {
