@@ -6,7 +6,7 @@ export function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const backendUrl = import.meta.env.BACKEND_URL;
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
   async function handleLogin() {
     const res = await fetch(`${backendUrl}/api/login`, {
       method: 'POST',

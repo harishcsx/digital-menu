@@ -6,7 +6,9 @@ export function SignUp() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-  const backendUrl = import.meta.env.BACKEND_URL;
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
+  console.log("burl : ", backendUrl);
+
   async function handleSignup() {
   const res = await fetch(`${backendUrl}/api/signup`, {
     method: 'POST',

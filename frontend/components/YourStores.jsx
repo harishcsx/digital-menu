@@ -7,7 +7,7 @@ export function YourStores() {
   const [loading, setLoading] = useState(true);
 
   const navigate = useNavigate();
-  const backendUrl = import.meta.env.BACKEND_URL;
+  const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
   useEffect(() => {
       async function isAuthenticated() {
